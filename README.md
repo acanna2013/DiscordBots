@@ -1,2 +1,2 @@
 # DiscordBots
-Code for bots I've created on Discord.
+Code for bots I've created on Discord using Javascript.
