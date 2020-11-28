@@ -1,63 +1,107 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client();
-prefix = "!";
-bot.on("ready", () => {
-  console.log("Bot is online!");
+const client = new Discord.Client();
+const prefix = "!";
+client.once("ready", () => {
+  console.log("Anna is online!");
 });
 
-bot.on("guildMemberAdd", (member) => {
+client.on("guildMemberAdd", (member) => {
   const channel = member.guild.channels.cache.find(
     (channel) => channel.name === "welcome"
   );
-
+  let colors = [
+    "Red",
+    "Blue",
+    "Green",
+    "Pink",
+    "Orange",
+    "Yellow",
+    "Black",
+    "White",
+    "Purple",
+    "Brown",
+    "Cyan",
+    "Lime",
+    "Tan",
+    "Fortegreen",
+  ];
+  let randomColor = colors[Math.floor(Math.random() * colors.length)];
   if (!channel) return;
   channel.send(
-    `Welcome ${member} to Creations for a Cause! Please tell us your first and last name!`
+    `Welcome ${member}! Your designated color is ` +
+      randomColor +
+      `. This color corresponds to the character you will be playing in Among Us`
   );
-  
 });
 
-// bot.on("message", (message) => {
-//   let args = message.content.substring(prefix.length).split(" ");
-//   switch (args[0]) {
-//     case "poll":
-//       const Embed = new Discord.MessageEmbed()
-//         .setColor("#7fe5f0")
-//         .setTitle("Poll")
-//         .setDescription("Scheduling Meeting")
-//         // .attachFiles("poods.jpg")
-//         .addFields({
-//           name: "Which day are you free?",
-//           value:
-//             "React with a thumbs up if you're free Friday night or a thumbs down for Saturday night.",
-//         });
-//       if (!args[1]) {
-//         message.channel.send(Embed);
-//         break;
-//       }
+client.on("message", (message) => {
+  if (message.content.includes("ping")) {
+    message.reply("pong");
+  }
+  if (message.content.includes("hong")) {
+    message.reply("kong");
+  }
+  if (message.content.includes("shut up")) {
+    message.reply("you stfu");
+  }
+  if (
+    message.content.includes("Anna's Bot") ||
+    message.content.includes("Anna's bot") ||
+    message.content.includes("anna's bot") ||
+    message.content.includes("anna's Bot")
+  ) {
+    message.reply("Can you frick off? I'm taking a shit.");
+  }
+  if (message.content.includes("adios") || message.content.includes("bye")) {
+    message.reply({
+      files: [
+        "https://thechuunicorner.files.wordpress.com/2016/07/jtphig8.png",
+      ],
+    });
+  }
+});
 
-//       // let msgArgs = args.slice(1).join(" ");
-//       // message.channel.send("**" + msgArgs + "**").then(messageReaction =>{
-//       //   messageReaction.react("👍");
-//       //   messageReaction.react("👎");
-//       // });
+client.on("message", (message) => {
+  let args = message.content.substring(prefix.length).split(" ");
+  switch (args[0]) {
+    case "poll":
+      const Embed = new Discord.MessageEmbed()
+        .setColor("#7fe5f0")
+        .setTitle("Poll")
+        .setDescription("Scheduling Meeting")
+        // .attachFiles("poods.jpg")
+        .addFields({
+          name: "Which day are you free?",
+          value:
+            "React with a thumbs up if you're free Friday night or a thumbs down for Saturday night.",
+        });
+      if (!args[1]) {
+        message.channel.send(Embed);
+        break;
+      }
 
-//       break;
-//   }
-// });
+      // let msgArgs = args.slice(1).join(" ");
+      // message.channel.send("**" + msgArgs + "**").then(messageReaction =>{
+      //   messageReaction.react("👍");
+      //   messageReaction.react("👎");
+      // });
 
-bot.on("message", (message) => {
+      break;
+  }
+});
+
+client.on("message", (message) => {
   let args = message.content.substring(prefix.length).split(" ");
   switch (args[0]) {
     case "pollTime":
       const Embed = new Discord.MessageEmbed()
         .setColor("#7fe5f0")
-        // .setTitle("Poll")
-        // .setDescription("Among Us/Models")
+        .setTitle("Poll")
+        .setDescription("Meeting Time")
         .addFields({
-          name: "For your next model, do you want to do one of the other models we've done before (from animal/baymax/mini swan) or a completely different model?",
+          name: "What time on Friday are you free for Among Us?",
           value:
-            "React with a thumbs up if you want to do a model from animal/baymax/swan and a thumbs down for a new model.",
+            "React with an emoji corresponding to the number you're available: 5, 6, 7, 8, 9, or 10. If you want to suggest a different time, feel free to do so.",
         });
       if (!args[1]) {
         message.channel.send(Embed);
@@ -68,5 +112,4 @@ bot.on("message", (message) => {
   }
 });
 
-
-bot.login("NzU3OTk4NjY4Njk0NTUyNTk2.X2ojRQ.9I5Og_Hg2GPw4eAEw2p9-WE4hlM");
+client.login("NzYzNDcyNjI4MTc3OTYxMDAz.X34NSw.TMzjsv8vqckfHJZ36Ror4xtC6kQ");
