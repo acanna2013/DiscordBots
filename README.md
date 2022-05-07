@@ -6,5 +6,5 @@ This is my first time working with JS, and I wanted to dip my toes into JS, so I
 As soon as a new user joins the Discord server, they are greeted by the bot and are assigned a randomly generated color.
 
 ![image](https://user-images.githubusercontent.com/51142303/167269120-4abd174f-d440-423f-b923-02b20b29d400.png)  
-<img src="https://user-images.githubusercontent.com/51142303/167269120-4abd174f-d440-423f-b923-02b20b29d400.png" alt="drawing" width="500"/>
+<img src="https://user-images.githubusercontent.com/51142303/167269120-4abd174f-d440-423f-b923-02b20b29d400.png" alt="drawing" width="300"/>
 The bot also automatically sends a message when a specific word is triggered. In this way, a user can potentially have a "conversation" with the bot. 
